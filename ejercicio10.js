@@ -1,13 +1,13 @@
 
 function checkJump(heights) {
     const tam = heights.length;
-    let middle = 0;
-    let value=-10000;
-
+    
     if (tam < 3) 
       return false;
     
     //encontrar el pico
+    let middle = 0;
+    let value=heights[0];
     for (let i = 0; i < tam; i++) {
         if(heights[i]>=value){
             middle=i
@@ -33,6 +33,7 @@ function checkJump(heights) {
    
     return true;
 }
+
 const heights =[ 1,1,1,1,1,1]
 console.log(checkJump(heights)) // true
 //const heights2 = [1, 7, 3, 5]
