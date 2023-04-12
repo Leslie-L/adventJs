@@ -4,18 +4,8 @@ function getCompleted(part, total) {
     
     const totalPart = parseInt(timePart[0]) * 3600 + parseInt(timePart[1]) * 60 + parseInt(timePart[2]);
     const totalTotal = parseInt(timeTotal[0]) * 3600 + parseInt(timeTotal[1]) * 60 + parseInt(timeTotal[2]);
-   //console.log(totalPart)
-    //console.log(totalTotal)
-    let mcm1 =  totalTotal % totalPart === 0 ?  totalPart %totalTotal : totalTotal % totalPart;
-    //console.log('mcm1',mcm1)
-    /*const numerador = totalPart / mcm; 
-    const denominador = totalTotal / mcm;
-    if(mcm === 0){
-        const res = totalPart / totalTotal;
-        if (res===1)
-         return '1/1'
-    }
-    return ''+numerador+'/'+denominador;*/
+   
+    
     function gcd(a, b) {
         let divisor;  
         for (let i = 1; i <= a && i <= b; i++) {
@@ -24,10 +14,11 @@ function getCompleted(part, total) {
         }
         return divisor;
     }
+    
     let div = (totalPart / totalTotal) * 100;
-    //console.log('div',div)
     const mcm =gcd(div, 100)
-    //console.log("mcm",mcm)
+    let mcm1 =  totalTotal % totalPart === 0 ?  totalPart %totalTotal : totalTotal % totalPart;
+    
     
     if(Number.isInteger(div)){
         const numerador= div / mcm;
