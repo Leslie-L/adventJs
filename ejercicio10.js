@@ -1,44 +1,39 @@
 
 function checkJump(heights) {
-    let equal =true;
     const tam = heights.length;
     let middle = 0;
-    let value=-1000;
-    let parabol =false;
-    for (let i = 0; i < heights.length; i++) {
+    let value=-10000;
+
+    if (tam < 3) 
+      return false;
+    
+    //encontrar el pico
+    for (let i = 0; i < tam; i++) {
         if(heights[i]>=value){
             middle=i
             value=heights[i]
         }
     }
-    //console.log(middle)
-    //console.log(heights[middle+1])
+    
+    //detectar si hay un ascenso y undescenso
     if(heights[middle+1]===undefined || heights[middle-1]===undefined)
         return false
-    //console.log("aqi2")
-
+    
+    //revisar el ascenso
     for (let i = 0; i < middle; i++) {
        if(!(heights[i] <= heights[i+1]))
         return false
-       if(heights[i] != heights[i+1])
-         equal=false
-
     }
-    //console.log("aqi3")
-    for (let i = middle; i <= tam-2; i++) {
+
+    //revisar el descenso
+    for (let i = middle; i < tam-1; i++) {
         if(!(heights[i] >= heights[i+1]))
          return false
-        if(heights[i] != heights[i+1])
-         equal=false
      }
-     //console.log("aqi4")
-    //if(equal)
-    // return false;
-     //console.log("aqi5")
+   
     return true;
 }
-
-const heights =[1, 1,4, 2, 3]
+const heights =[ 1,1,1,1,1,1]
 console.log(checkJump(heights)) // true
 //const heights2 = [1, 7, 3, 5]
 //console.log(checkJump(heights2))
