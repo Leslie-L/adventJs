@@ -13,6 +13,18 @@
       return res.name;
   }*/
 
+  function selectSleigh(distance, sleighs) {
+    const wattsMax = 20;
+      const map1  = sleighs.map(item => {
+          const consums = item.consumption * distance;
+          return Object.assign({}, item, {consums: consums});
+      });
+      
+      const res = map1.filter(item => item.consums <= wattsMax);
+      const name= res[res.length -1]['name']
+      return name;
+  }
+
 const distance = 30
 const sleighs = [
   { name: "Gorusuke", consumption: 0.3 },
