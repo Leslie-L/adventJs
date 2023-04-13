@@ -21,7 +21,8 @@
       });
       
       const res = map1.filter(item => item.consums <= wattsMax);
-      const name= res[res.length -1]['name']
+      const name = res.length > 0 ? res[res.length - 1]['name'] : null;
+      
       return name;
   }
 
