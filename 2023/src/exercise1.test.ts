@@ -12,6 +12,21 @@ function findFirstRepeated(gifts:number[]):number {
     })
     return res;
 }
+
+//better Version
+function findFirstRepeated2(gifts:number[]) {
+    const repeted:number[]=[];
+      for(let i =0; i<gifts.length;i++){
+        if(repeted.includes(gifts[i])){
+              return gifts[i]
+          }else{
+              repeted.push(gifts[i])
+          }
+      }
+      
+      return -1;
+  }
+  
 describe('Exercise 1: check ids report the first repeted',()=>{
     test('T1: [2, 1, 3, 5, 3, 2] =>  res should be: 3 ',()=>{
         const giftIds = [2, 1, 3, 5, 3, 2]
