@@ -5,8 +5,39 @@ If it is not possible, null.
 If a palindrome can be formed with one change,
  an array with the two positions (indexes) that must be swapped to create it.
 */
-
 function getIndexsForPalindrome(word:string) {
+    const isPalindrom = (wordTemp:string)=>{
+        const temp = wordTemp.split('').reverse().join('')
+        return temp === wordTemp;
+    }
+    if(isPalindrom(word))
+        return []
+   
+    const letters = word.split('');
+    let i=0;
+    let j =1;
+    while(i < letters.length-1) {
+       
+            const letter1 = letters[i]
+            const letter2 = letters[j]
+            //swap
+            letters[i]=letter2;
+            letters[j]=letter1;
+            if(isPalindrom(letters.join('')))
+            return [i,j]
+            //swap
+            letters[i]=letter1;
+            letters[j]=letter2;
+        j++
+        if(j===letters.length){
+            j=1;
+            i++
+        }
+            
+    }
+    return null
+}
+function getIndexsForPalindrome2(word:string) {
     const isPalindrom = (wordTemp:string)=>{
         const temp = wordTemp.split('').reverse().join('')
         return temp === wordTemp;
